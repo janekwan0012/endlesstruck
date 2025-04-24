@@ -1,0 +1,130 @@
+{
+    "version": "1.0",
+    "lastUpdated": "2024-01-20",
+    "games": [
+        {
+            "id": "office-tycoon",
+            "name": {
+                "en": "Office Tycoon",
+                "zh": "办公室大亨"
+            },
+            "description": {
+                "en": "Office Tycoon is an engaging business simulation game that challenges players to build and manage a successful office environment. With realistic management mechanics and strategic gameplay, each decision impacts your company's growth.",
+                "zh": "办公室大亨是一款引人入胜的企业模拟游戏，挑战玩家建立和管理成功的办公环境。通过真实的管理机制和战略性的游戏玩法，每个决定都会影响公司的发展。"
+            },
+            "iframeUrl": "https://www.crazygames.com/embed/office-tycoon-expand-manage",
+            "category": "strategy",
+            "features": [
+                {
+                    "icon": "🎮",
+                    "title": {
+                        "en": "Gameplay",
+                        "zh": "游戏玩法"
+                    },
+                    "description": {
+                        "en": "Strategic business management with intuitive controls",
+                        "zh": "直观的操作系统，战略性的企业管理"
+                    }
+                },
+                {
+                    "icon": "🏢",
+                    "title": {
+                        "en": "Management",
+                        "zh": "经营管理"
+                    },
+                    "description": {
+                        "en": "Hire staff and optimize workspace efficiency",
+                        "zh": "雇佣员工并优化工作空间效率"
+                    }
+                },
+                {
+                    "icon": "📈",
+                    "title": {
+                        "en": "Progress",
+                        "zh": "发展进程"
+                    },
+                    "description": {
+                        "en": "Expand your business and increase profits",
+                        "zh": "扩展业务并增加利润"
+                    }
+                }
+            ],
+            "howToPlay": {
+                "controls": {
+                    "en": "Use mouse to manage your office",
+                    "zh": "使用鼠标管理您的办公室"
+                },
+                "objective": {
+                    "en": "Build a successful and profitable business",
+                    "zh": "建立一个成功且盈利的企业"
+                },
+                "tips": {
+                    "en": "Balance resources and staff satisfaction",
+                    "zh": "平衡资源和员工满意度"
+                }
+            },
+            "thumbnail": "",
+            "tags": ["business", "simulation", "management"],
+            "addedDate": "2024-01-20",
+            "popularity": 0
+        }
+    ],
+    "categories": {
+        "action": {
+            "name": {
+                "en": "Action Games",
+                "zh": "动作游戏"
+            },
+            "icon": "🎮"
+        },
+        "puzzle": {
+            "name": {
+                "en": "Puzzle Games",
+                "zh": "益智游戏"
+            },
+            "icon": "🧩"
+        },
+        "strategy": {
+            "name": {
+                "en": "Strategy Games",
+                "zh": "策略游戏"
+            },
+            "icon": "⚔️"
+        },
+        "shooting": {
+            "name": {
+                "en": "Shooting Games",
+                "zh": "射击游戏"
+            },
+            "icon": "🎯"
+        },
+        "rpg": {
+            "name": {
+                "en": "RPG Games",
+                "zh": "角色扮演"
+            },
+            "icon": "👤"
+        },
+        "casual": {
+            "name": {
+                "en": "Casual Games",
+                "zh": "休闲游戏"
+            },
+            "icon": "🎲"
+        },
+        "sports": {
+            "name": {
+                "en": "Sports Games",
+                "zh": "体育游戏"
+            },
+            "icon": "⚽"
+        },
+        "other": {
+            "name": {
+                "en": "Other Games",
+                "zh": "其他游戏"
+            },
+            "icon": "��"
+        }
+    }
+} 

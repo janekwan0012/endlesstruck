@@ -1,0 +1,21 @@
+{
+  "name": "TikTok Trending Games",
+  "short_name": "TikTok Games",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2c3e50",
+  "background_color": "#f4f4f4",
+  "display": "standalone",
+  "start_url": "/index.html",
+  "description": "Play the most trending games online for free. Various categories including action, puzzle, strategy, and simulation games."
+} 
