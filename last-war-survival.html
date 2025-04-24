@@ -3,278 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Last War: Survival Battle - TikTok Trending Games</title>
-    <meta name="description" content="Play Last War: Survival Battle, an intense survival strategy game where you defend your base and battle against enemy forces in a post-apocalyptic world.">
+    <title>Last War: Survival Battle - Strategy Game | TikTok Trending Games</title>
+    <meta name="description" content="Play Last War: Survival Battle online - An intense strategy game where you build, defend, and conquer. Manage resources, command troops, and survive in this epic battle simulation.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* 基础样式 */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            background-color: #f3f4f6;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: block !important;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-btn {
-            padding: 5px 10px;
-            border: 1px solid white;
-            background: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .language-btn.active {
-            background: white;
-            color: #2c3e50;
-        }
-
-        .game-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .game-title h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .game-title p {
-            color: #666;
-            font-size: 1.2rem;
-        }
-
+        /* 游戏容器样式 */
         .game-container {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
         }
 
-        .game-frame {
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 2rem;
+            height: 100%;
+            border-radius: 1rem;
         }
 
-        .game-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 2rem;
-        }
-
-        .feature-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .game-guide {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .game-guide h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .guide-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .guide-section h3 {
-            color: #34495e;
-            margin-bottom: 0.5rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 2rem;
-        }
-
-        .tag {
-            background: #e9ecef;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            color: #495057;
-        }
-
-        [lang="zh"] {
+        /* 语言切换样式 */
+        [lang="en"] .content-zh,
+        [lang="zh"] .content-en {
             display: none;
         }
 
-        .language-active[lang="zh"] {
+        [lang="en"] .content-en,
+        [lang="zh"] .content-zh {
             display: block;
         }
 
-        .language-active[lang="en"] {
-            display: none;
+        [lang="en"] .content-en.inline,
+        [lang="zh"] .content-zh.inline {
+            display: inline;
+        }
+
+        /* 评论区样式 */
+        .comments-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .utterances {
+            max-width: 100% !important;
+            margin: 0;
+        }
+
+        /* 确保页面内容始终可见 */
+        .container {
+            display: block !important;
+        }
+
+        /* 分享按钮样式 */
+        .share-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .share-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            color: white;
+            font-size: 16px;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .share-btn.tiktok {
+            background: #000000;
+        }
+
+        .share-btn.twitter {
+            background: #1DA1F2;
+        }
+
+        .share-btn.facebook {
+            background: #4267B2;
+        }
+
+        .share-btn.reddit {
+            background: #FF4500;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>TikTok Trending Games</h1>
-                <div class="language-switcher">
-                    <button class="language-btn active" onclick="switchLanguage('en')">English</button>
-                    <button class="language-btn" onclick="switchLanguage('zh')">中文</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="game-title">
-            <h1 lang="en">Last War: Survival Battle</h1>
-            <h1 lang="zh">最后之战：生存战役</h1>
-            <p lang="en">Defend your base and battle for survival in this intense strategy game</p>
-            <p lang="zh">在这款激烈的策略游戏中保卫基地，为生存而战</p>
-        </div>
-
-        <div class="game-container">
-            <iframe class="game-frame" src="https://storage.y8.com/y8-studio/unity_webgl/perion1111/last_war_survival_battle_v2/?key=y8&amp;value=default" allowfullscreen></iframe>
-
-            <div class="game-features">
-                <div class="feature-card">
-                    <h3>🏰 Base Defense</h3>
-                    <p lang="en">Build and upgrade your base defenses to withstand enemy attacks</p>
-                    <p lang="zh">建造和升级基地防御设施，抵御敌人进攻</p>
-                </div>
-                <div class="feature-card">
-                    <h3>⚔️ Strategic Combat</h3>
-                    <p lang="en">Command your troops in tactical battles against enemy forces</p>
-                    <p lang="zh">在战术战斗中指挥你的部队对抗敌军</p>
-                </div>
-                <div class="feature-card">
-                    <h3>💎 Resource Management</h3>
-                    <p lang="en">Gather and manage resources to strengthen your base and army</p>
-                    <p lang="zh">收集和管理资源，加强你的基地和军队</p>
-                </div>
-            </div>
-
-            <div class="game-guide">
-                <h2 lang="en">How to Play</h2>
-                <h2 lang="zh">游戏指南</h2>
-
-                <div class="guide-section">
-                    <h3 lang="en">Controls</h3>
-                    <h3 lang="zh">控制方式</h3>
-                    <p lang="en">• Mouse: Select units and buildings<br>
-                    • Left Click: Move units, attack enemies<br>
-                    • Right Click: Cancel actions<br>
-                    • Keyboard: Camera movement (WASD)</p>
-                    <p lang="zh">• 鼠标：选择单位和建筑<br>
-                    • 左键点击：移动单位，攻击敌人<br>
-                    • 右键点击：取消操作<br>
-                    • 键盘：相机移动（WASD）</p>
-                </div>
-
-                <div class="guide-section">
-                    <h3 lang="en">Objectives</h3>
-                    <h3 lang="zh">游戏目标</h3>
-                    <p lang="en">1. Build and defend your base<br>
-                    2. Gather resources and upgrade facilities<br>
-                    3. Train and command your army<br>
-                    4. Defeat enemy forces and survive</p>
-                    <p lang="zh">1. 建造和保卫你的基地<br>
-                    2. 收集资源并升级设施<br>
-                    3. 训练和指挥你的军队<br>
-                    4. 击败敌军并生存下来</p>
-                </div>
-
-                <div class="guide-section">
-                    <h3 lang="en">Tips</h3>
-                    <h3 lang="zh">游戏技巧</h3>
-                    <p lang="en">1. Balance resource gathering and defense<br>
-                    2. Upgrade key buildings first<br>
-                    3. Use terrain advantages in battles<br>
-                    4. Keep a reserve of resources for emergencies</p>
-                    <p lang="zh">1. 平衡资源收集和防御建设<br>
-                    2. 优先升级关键建筑<br>
-                    3. 在战斗中使用地形优势<br>
-                    4. 保持资源储备以应对紧急情况</p>
-                </div>
-            </div>
-
-            <div class="tags">
-                <span class="tag">survival</span>
-                <span class="tag">strategy</span>
-                <span class="tag">war</span>
-                <span class="tag">defense</span>
-                <span class="tag">resource management</span>
+    <!-- 语言切换器 -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex justify-end space-x-4">
+                <button onclick="setLanguage('en')" class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en">English</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('zh')" class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh">中文</button>
             </div>
         </div>
     </div>
 
+    <!-- 页面内容 -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- 标题部分 -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2">
+                <span class="content-en">Last War: Survival Battle</span>
+                <span class="content-zh">最后的战争：生存之战</span>
+            </h1>
+            <p class="text-xl text-gray-600">
+                <span class="content-en">Build, defend, and conquer in this epic strategy battle</span>
+                <span class="content-zh">在这场史诗级策略战斗中建设、防御和征服</span>
+            </p>
+            <!-- 添加分享按钮 -->
+            <div class="share-buttons justify-center mt-4">
+                <button class="share-btn tiktok" onclick="shareGame('tiktok')" title="Share on TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </button>
+                <button class="share-btn twitter" onclick="shareGame('twitter')" title="Share on Twitter">
+                    <i class="fab fa-twitter"></i>
+                </button>
+                <button class="share-btn facebook" onclick="shareGame('facebook')" title="Share on Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                <button class="share-btn reddit" onclick="shareGame('reddit')" title="Share on Reddit">
+                    <i class="fab fa-reddit-alien"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 游戏部分 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div class="game-container">
+                <iframe 
+                    src="https://storage.y8.com/y8-studio/unity_webgl/perion1111/last_war_survival_battle_v2/?key=y8&value=default"
+                    frameborder="0"
+                    allow="fullscreen"
+                    scrolling="no"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- 游戏特性 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">Game Features</span>
+                <span class="content-zh">游戏特色</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-lg mb-3">🏰 
+                        <span class="content-en">Base Building</span>
+                        <span class="content-zh">基地建设</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span class="content-en">Construct and fortify your military base</span>
+                        <span class="content-zh">建造和加固你的军事基地</span>
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-lg mb-3">⚔️ 
+                        <span class="content-en">Strategic Combat</span>
+                        <span class="content-zh">战略战斗</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span class="content-en">Command troops and plan tactical battles</span>
+                        <span class="content-zh">指挥部队并规划战术战斗</span>
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-lg mb-3">📈 
+                        <span class="content-en">Resource Management</span>
+                        <span class="content-zh">资源管理</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span class="content-en">Gather and allocate resources efficiently</span>
+                        <span class="content-zh">高效收集和分配资源</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏指南 -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">How to Play</span>
+                <span class="content-zh">游戏指南</span>
+            </h2>
+            <div class="space-y-4">
+                <div>
+                    <p class="text-gray-600">
+                        <span class="content-en"><strong>Controls:</strong> Use mouse to build structures and command units</span>
+                        <span class="content-zh"><strong>控制：</strong>使用鼠标建造建筑和指挥单位</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-gray-600">
+                        <span class="content-en"><strong>Objective:</strong> Develop your base and defeat enemy forces</span>
+                        <span class="content-zh"><strong>目标：</strong>发展你的基地并击败敌军</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-gray-600">
+                        <span class="content-en"><strong>Tips:</strong> Balance resource gathering with military development</span>
+                        <span class="content-zh"><strong>提示：</strong>平衡资源收集和军事发展</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏介绍 -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">About Last War: Survival Battle</span>
+                <span class="content-zh">关于最后的战争：生存之战</span>
+            </h2>
+            <div class="text-gray-600">
+                <p class="mb-4">
+                    <span class="content-en">Last War: Survival Battle is an intense strategy game that combines base building, resource management, and tactical combat. Build and defend your base, train powerful units, and lead your forces to victory in epic battles.</span>
+                    <span class="content-zh">最后的战争：生存之战是一款激烈的策略游戏，结合了基地建设、资源管理和战术战斗。建造和防御你的基地，训练强大的部队，在史诗般的战斗中带领你的军队走向胜利。</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- 评论区 -->
+        <div class="comments-section">
+            <h2 class="section-title">
+                <span class="content-en">Comments</span>
+                <span class="content-zh">评论</span>
+            </h2>
+            <script src="https://utteranc.es/client.js"
+                repo="janekwan0012/game-site-comments"
+                issue-term="pathname"
+                label="comment"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <p class="text-center text-gray-500 text-sm">
+                <span class="content-en">&copy; 2024 TikTok Trending Games</span>
+                <span class="content-zh">&copy; 2024 TikTok热门游戏</span>
+            </p>
+        </div>
+    </footer>
+
     <script>
-        function switchLanguage(lang) {
+        // 语言切换函数
+        function setLanguage(lang) {
+            console.log('Switching language to:', lang);
             document.documentElement.lang = lang;
-            document.querySelectorAll('[lang]').forEach(element => {
-                element.classList.remove('language-active');
-            });
-            document.querySelectorAll(`[lang="${lang}"]`).forEach(element => {
-                element.classList.add('language-active');
-            });
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-            localStorage.setItem('preferredLanguage', lang);
+            localStorage.setItem('preferred-language', lang);
+            updateLanguageButtons(lang);
+
+            // 调试信息
+            console.log('Current language:', lang);
+            const zhContent = document.querySelectorAll('.content-zh');
+            const enContent = document.querySelectorAll('.content-en');
+            console.log('Chinese content elements:', zhContent.length);
+            console.log('English content elements:', enContent.length);
         }
 
-        // Set initial language based on user preference
-        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        switchLanguage(preferredLanguage);
+        // 更新语言按钮状态
+        function updateLanguageButtons(currentLang) {
+            document.querySelectorAll('[data-lang]').forEach(button => {
+                if (button.dataset.lang === currentLang) {
+                    button.classList.add('font-bold', 'text-gray-900');
+                } else {
+                    button.classList.remove('font-bold', 'text-gray-900');
+                }
+            });
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            setLanguage(savedLang);
+        });
     </script>
+
+    <!-- 分享功能 -->
+    <script>
+        function shareGame(platform) {
+            const gameUrl = window.location.href;
+            const currentLang = document.documentElement.lang;
+            
+            const gameTitles = {
+                en: 'Last War: Survival Battle - Strategy Game',
+                zh: '最后的战争：生存之战 - 策略游戏'
+            };
+
+            const gameTitle = gameTitles[currentLang];
+            const shareText = currentLang === 'en' 
+                ? `Check out this awesome game: ${gameTitle}`
+                : `来看看这个精彩的游戏：${gameTitle}`;
+
+            let shareUrl = '';
+            switch(platform) {
+                case 'tiktok':
+                    shareUrl = `https://www.tiktok.com/share?url=${encodeURIComponent(gameUrl)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(gameUrl)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(gameUrl)}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://reddit.com/submit?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(shareText)}`;
+                    break;
+            }
+
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    </script>
+
+    <!-- 添加 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
 </html> 

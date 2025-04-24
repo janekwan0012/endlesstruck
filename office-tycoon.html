@@ -7,6 +7,14 @@
     <meta name="description" content="Play Office Tycoon online - A business simulation game where you manage and expand your office. Hire employees, upgrade facilities, and create a profitable business environment.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 基础样式 */
+        body {
+            background-color: #f3f4f6;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: block !important;
+        }
+
+        /* 游戏容器样式 */
         .game-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -14,6 +22,7 @@
             overflow: hidden;
             max-width: 100%;
         }
+
         .game-container iframe {
             position: absolute;
             top: 0;
@@ -22,26 +31,103 @@
             height: 100%;
             border-radius: 1rem;
         }
-        [lang="zh"] {
+
+        /* 语言切换样式 */
+        [lang="en"] .content-zh,
+        [lang="zh"] .content-en {
             display: none;
         }
-        .lang-zh [lang="en"] {
-            display: none;
-        }
-        .lang-zh [lang="zh"] {
+
+        [lang="en"] .content-en,
+        [lang="zh"] .content-zh {
             display: block;
         }
-        .lang-zh .lang-inline[lang="zh"] {
+
+        [lang="en"] .content-en.inline,
+        [lang="zh"] .content-zh.inline {
             display: inline;
         }
-        .secondary-text {
-            color: #666;
-            font-size: 0.9em;
+
+        /* 评论区样式 */
+        .comments-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .utterances {
+            max-width: 100% !important;
+            margin: 0;
+        }
+
+        /* 确保页面内容始终可见 */
+        .container {
+            display: block !important;
+        }
+
+        /* 分享按钮样式 */
+        .share-section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .share-title {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .share-tiktok {
+            background-color: #000000;
+        }
+        
+        .share-twitter {
+            background-color: #1DA1F2;
+        }
+        
+        .share-facebook {
+            background-color: #4267B2;
+        }
+        
+        .share-reddit {
+            background-color: #FF5700;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Language Switcher -->
+<body>
+    <!-- 语言切换器 -->
     <div class="bg-white border-b">
         <div class="container mx-auto px-4 py-2">
             <div class="flex justify-end space-x-4">
@@ -52,22 +138,22 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="text-center mb-8 container mx-auto px-4 py-6">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-            <span lang="en">Office Tycoon</span>
-            <span lang="zh">办公室大亨</span>
-        </h1>
-        <p class="text-xl text-gray-600">
-            <span lang="en">Experience the ultimate business management simulation</span>
-            <span lang="zh">体验终极企业经营模拟</span>
-        </p>
-    </header>
+    <!-- 页面内容 -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- 标题部分 -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2">
+                <span class="content-en">Office Tycoon</span>
+                <span class="content-zh">办公室大亨</span>
+            </h1>
+            <p class="text-xl text-gray-600">
+                <span class="content-en">Experience the ultimate business management simulation</span>
+                <span class="content-zh">体验终极企业经营模拟</span>
+            </p>
+        </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4">
-        <!-- Game Section -->
-        <section class="mb-10 bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- 游戏部分 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
             <div class="game-container">
                 <iframe 
                     src="https://www.crazygames.com/embed/office-tycoon-expand-manage"
@@ -77,111 +163,154 @@
                     allowfullscreen>
                 </iframe>
             </div>
-        </section>
+        </div>
 
-        <!-- Game Features -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                <span lang="en">Game Features</span>
-                <span lang="zh">游戏特色</span>
+        <!-- 游戏特性 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">Game Features</span>
+                <span class="content-zh">游戏特色</span>
             </h2>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="font-bold text-lg mb-3">🎮 
-                        <span lang="en">Gameplay</span>
-                        <span lang="zh">游戏玩法</span>
+                        <span class="content-en">Gameplay</span>
+                        <span class="content-zh">游戏玩法</span>
                     </h3>
                     <p class="text-gray-600">
-                        <span lang="en">Strategic business management with intuitive controls</span>
-                        <span lang="zh">直观的操作系统，战略性的企业管理</span>
+                        <span class="content-en">Strategic business management with intuitive controls</span>
+                        <span class="content-zh">直观的操作系统，战略性的企业管理</span>
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="font-bold text-lg mb-3">🏢 
-                        <span lang="en">Management</span>
-                        <span lang="zh">经营管理</span>
+                        <span class="content-en">Management</span>
+                        <span class="content-zh">经营管理</span>
                     </h3>
                     <p class="text-gray-600">
-                        <span lang="en">Hire staff and optimize workspace efficiency</span>
-                        <span lang="zh">雇佣员工并优化工作空间效率</span>
+                        <span class="content-en">Hire staff and optimize workspace efficiency</span>
+                        <span class="content-zh">雇佣员工并优化工作空间效率</span>
                     </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="font-bold text-lg mb-3">📈 
-                        <span lang="en">Progress</span>
-                        <span lang="zh">发展进程</span>
+                        <span class="content-en">Progress</span>
+                        <span class="content-zh">发展进程</span>
                     </h3>
                     <p class="text-gray-600">
-                        <span lang="en">Expand your business and increase profits</span>
-                        <span lang="zh">扩展业务并增加利润</span>
+                        <span class="content-en">Expand your business and increase profits</span>
+                        <span class="content-zh">扩展业务并增加利润</span>
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- How to Play -->
-        <section class="mb-10 bg-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                <span lang="en">How to Play</span>
-                <span lang="zh">游戏指南</span>
+        <!-- 游戏指南 -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">How to Play</span>
+                <span class="content-zh">游戏指南</span>
             </h2>
             <div class="space-y-4">
                 <div>
                     <p class="text-gray-600">
-                        <span lang="en"><span class="font-bold">Controls:</span> Use mouse to manage your office</span>
-                        <span lang="zh"><span class="font-bold">控制：</span>使用鼠标管理您的办公室</span>
+                        <span class="content-en"><strong>Controls:</strong> Use mouse to manage your office</span>
+                        <span class="content-zh"><strong>控制：</strong>使用鼠标管理您的办公室</span>
                     </p>
                 </div>
                 <div>
                     <p class="text-gray-600">
-                        <span lang="en"><span class="font-bold">Objective:</span> Build a successful and profitable business</span>
-                        <span lang="zh"><span class="font-bold">目标：</span>建立一个成功且盈利的企业</span>
+                        <span class="content-en"><strong>Objective:</strong> Build a successful and profitable business</span>
+                        <span class="content-zh"><strong>目标：</strong>建立一个成功且盈利的企业</span>
                     </p>
                 </div>
                 <div>
                     <p class="text-gray-600">
-                        <span lang="en"><span class="font-bold">Tips:</span> Balance resources and staff satisfaction</span>
-                        <span lang="zh"><span class="font-bold">提示：</span>平衡资源和员工满意度</span>
+                        <span class="content-en"><strong>Tips:</strong> Balance resources and staff satisfaction</span>
+                        <span class="content-zh"><strong>提示：</strong>平衡资源和员工满意度</span>
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section class="mb-10 bg-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                <span lang="en">About Office Tycoon</span>
-                <span lang="zh">关于办公室大亨</span>
+        <!-- 游戏介绍 -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">About Office Tycoon</span>
+                <span class="content-zh">关于办公室大亨</span>
             </h2>
-            <div class="prose max-w-none text-gray-600">
+            <div class="text-gray-600">
                 <p class="mb-4">
-                    <span lang="en">Office Tycoon is an engaging business simulation game that challenges players to build and manage a successful office environment. With realistic management mechanics and strategic gameplay, each decision impacts your company's growth.</span>
-                    <span lang="zh">办公室大亨是一款引人入胜的企业模拟游戏，挑战玩家建立和管理成功的办公环境。通过真实的管理机制和战略性的游戏玩法，每个决定都会影响公司的发展。</span>
+                    <span class="content-en">Office Tycoon is an engaging business simulation game that challenges players to build and manage a successful office environment. With realistic management mechanics and strategic gameplay, each decision impacts your company's growth.</span>
+                    <span class="content-zh">办公室大亨是一款引人入胜的企业模拟游戏，挑战玩家建立和管理成功的办公环境。通过真实的管理机制和战略性的游戏玩法，每个决定都会影响公司的发展。</span>
                 </p>
             </div>
         </section>
-    </main>
 
-    <!-- Footer -->
+        <!-- 评论区 -->
+        <div class="comments-section">
+            <h2 class="section-title">
+                <span class="content-en">Comments</span>
+                <span class="content-zh">评论</span>
+            </h2>
+            <script src="https://utteranc.es/client.js"
+                repo="janekwan0012/game-site-comments"
+                issue-term="pathname"
+                label="comment"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+
+        <!-- Share section -->
+        <div class="share-section">
+            <h3 class="share-title" lang="en">Share This Game</h3>
+            <h3 class="share-title" lang="zh">分享游戏</h3>
+            <div class="share-buttons">
+                <div class="share-btn share-tiktok" onclick="shareGame('tiktok')">
+                    <i class="fa fa-tiktok"></i>
+                </div>
+                <div class="share-btn share-twitter" onclick="shareGame('twitter')">
+                    <i class="fa fa-twitter"></i>
+                </div>
+                <div class="share-btn share-facebook" onclick="shareGame('facebook')">
+                    <i class="fa fa-facebook"></i>
+                </div>
+                <div class="share-btn share-reddit" onclick="shareGame('reddit')">
+                    <i class="fa fa-reddit"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
     <footer class="bg-white border-t mt-12">
         <div class="container mx-auto px-4 py-6">
             <p class="text-center text-gray-500 text-sm">
-                <span lang="en">&copy; 2024 TikTok Trending Games</span>
-                <span lang="zh">&copy; 2024 TikTok热门游戏</span>
+                <span class="content-en">&copy; 2024 TikTok Trending Games</span>
+                <span class="content-zh">&copy; 2024 TikTok热门游戏</span>
             </p>
         </div>
     </footer>
 
     <script>
+        // 语言切换函数
         function setLanguage(lang) {
-            document.body.className = lang === 'zh' ? 'lang-zh' : '';
+            console.log('Switching language to:', lang);
             document.documentElement.lang = lang;
-            // 保存语言偏好
             localStorage.setItem('preferred-language', lang);
-            // 更新按钮状态
             updateLanguageButtons(lang);
+
+            // 调试信息
+            console.log('Current language:', lang);
+            const zhContent = document.querySelectorAll('.content-zh');
+            const enContent = document.querySelectorAll('.content-en');
+            console.log('Chinese content elements:', zhContent.length);
+            console.log('English content elements:', enContent.length);
         }
 
+        // 更新语言按钮状态
         function updateLanguageButtons(currentLang) {
             document.querySelectorAll('[data-lang]').forEach(button => {
                 if (button.dataset.lang === currentLang) {
@@ -192,14 +321,38 @@
             });
         }
 
-        // 检查是否有保存的语言偏好
-        const savedLang = localStorage.getItem('preferred-language');
-        if (savedLang) {
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
             setLanguage(savedLang);
-        }
+        });
+    </script>
 
-        // 初始化按钮状态
-        updateLanguageButtons(savedLang || 'en');
+    <!-- 分享功能 -->
+    <script>
+        function shareGame(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("Check out this Office Tycoon game on TikTok Trending Games!");
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'tiktok':
+                    shareUrl = `https://www.tiktok.com/upload/?url=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://www.reddit.com/submit?url=${url}&title=${title}`;
+                    break;
+            }
+            
+            window.open(shareUrl, '_blank');
+        }
     </script>
 </body>
 </html> 

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy Games - TikTok Trending Games</title>
+    <meta name="description" content="Browse our collection of strategy games. Test your strategic thinking and planning skills with these challenging games.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-btn {
+            padding: 5px 10px;
+            border: 1px solid white;
+            background: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .language-btn.active {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .category-header {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .game-description {
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .play-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link i {
+            margin-right: 5px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+        
+        /* 确保超长文本被截断 */
+        .game-description {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold category-title-en">Strategy Games</h1>
+                    <h1 class="text-2xl font-bold category-title-zh hidden">策略游戏</h1>
+                </div>
+                <div class="language-switch">
+                    <button onclick="switchLanguage('en')" class="language-btn active">English</button>
+                    <button onclick="switchLanguage('zh')" class="language-btn">中文</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> 
+            <span class="back-text-en">Back to Home</span>
+            <span class="back-text-zh hidden">返回首页</span>
+        </a>
+
+        <div class="category-header">
+            <div class="category-icon">🏆</div>
+            <h2 class="text-2xl font-bold category-title-en">Strategy Games</h2>
+            <h2 class="text-2xl font-bold category-title-zh hidden">策略游戏</h2>
+            <p class="category-desc-en">Test your strategic thinking and planning skills</p>
+            <p class="category-desc-zh hidden">测试你的战略思维和规划能力</p>
+        </div>
+
+        <div class="games-grid" id="games-container">
+            <!-- Game cards will be added here by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text-en">© 2024 TikTok Trending Games. All rights reserved.</p>
+                <p class="footer-text-zh hidden">© 2024 TikTok热门游戏. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 游戏数据
+        const games = [
+            {
+                id: "last-war-survival",
+                title: {
+                    en: "Last War Survival",
+                    zh: "最后的战争生存"
+                },
+                description: {
+                    en: "Lead your forces to victory in this epic war strategy game. Build your base, train troops, and dominate the battlefield in a post-apocalyptic world.",
+                    zh: "在这场史诗般的战争策略游戏中带领你的部队走向胜利。建立基地，训练部队，在末日后的世界中主宰战场。"
+                },
+                image: "images/last-war-survival.jpg",
+                url: "last-war-survival.html"
+            }
+        ];
+
+        // 分类配置
+        const categoryConfig = {
+            id: "strategy",
+            title: {
+                en: "Strategy",
+                zh: "策略"
+            },
+            description: {
+                en: "Test your strategic thinking and planning skills",
+                zh: "测试你的战略思维和规划能力"
+            },
+            icon: "🏆"
+        };
+
+        // 渲染游戏卡片
+        function renderGames() {
+            const gamesContainer = document.getElementById('games-container');
+            gamesContainer.innerHTML = '';
+
+            if (games.length === 0) {
+                // 显示空状态
+                const emptyState = document.createElement('div');
+                emptyState.className = 'empty-state';
+                emptyState.innerHTML = `
+                    <div class="empty-icon">📋</div>
+                    <h3 class="empty-title-en">No games yet</h3>
+                    <h3 class="empty-title-zh hidden">暂无游戏</h3>
+                    <p class="empty-desc-en">Games will be added soon. Check back later!</p>
+                    <p class="empty-desc-zh hidden">游戏将很快添加。稍后再来看看！</p>
+                `;
+                gamesContainer.appendChild(emptyState);
+                return;
+            }
+
+            games.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.innerHTML = `
+                    <img src="${game.image}" alt="${game.title.en}" class="game-thumbnail">
+                    <div class="game-info">
+                        <h3 class="game-title game-title-en">${game.title.en}</h3>
+                        <h3 class="game-title game-title-zh hidden">${game.title.zh}</h3>
+                        <p class="game-description game-desc-en">${game.description.en}</p>
+                        <p class="game-description game-desc-zh hidden">${game.description.zh}</p>
+                        <a href="${game.url}" class="play-btn play-btn-en">Play</a>
+                        <a href="${game.url}" class="play-btn play-btn-zh hidden">玩游戏</a>
+                    </div>
+                `;
+                gamesContainer.appendChild(gameCard);
+            });
+        }
+
+        // 语言切换函数
+        function switchLanguage(lang) {
+            // 隐藏所有语言元素
+            document.querySelectorAll('[class*="-en"], [class*="-zh"]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // 显示选定语言的元素
+            document.querySelectorAll(`[class*="-${lang}"]`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // 更新按钮样式
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // 保存语言偏好
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderGames();
+            
+            // 设置初始语言
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(preferredLanguage);
+        });
+    </script>
+</body>
+</html> 

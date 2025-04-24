@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Games - TikTok Trending Games</title>
+    <meta name="description" content="Browse our collection of action games. Experience thrilling adventures and test your reflexes with these exciting action games.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-btn {
+            padding: 5px 10px;
+            border: 1px solid white;
+            background: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .language-btn.active {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .category-header {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .game-description {
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .play-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link i {
+            margin-right: 5px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+        
+        /* 确保超长文本被截断 */
+        .game-description {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        /* Share buttons styles */
+        .share-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .share-title {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .share-tiktok {
+            background-color: #000000;
+        }
+
+        .share-twitter {
+            background-color: #1DA1F2;
+        }
+
+        .share-facebook {
+            background-color: #4267B2;
+        }
+
+        .share-reddit {
+            background-color: #FF5700;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold category-title-en">Action Games</h1>
+                    <h1 class="text-2xl font-bold category-title-zh hidden">动作游戏</h1>
+                </div>
+                <div class="language-switch">
+                    <button onclick="switchLanguage('en')" class="language-btn active">English</button>
+                    <button onclick="switchLanguage('zh')" class="language-btn">中文</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> 
+            <span class="back-text-en">Back to Home</span>
+            <span class="back-text-zh hidden">返回首页</span>
+        </a>
+
+        <div class="category-header">
+            <div class="category-icon">⚡</div>
+            <h2 class="text-2xl font-bold category-title-en">Action Games</h2>
+            <h2 class="text-2xl font-bold category-title-zh hidden">动作游戏</h2>
+            <p class="category-desc-en">Fast-paced adventures that test your reflexes</p>
+            <p class="category-desc-zh hidden">快节奏冒险，测试你的反应能力</p>
+        </div>
+
+        <div class="games-grid" id="games-container">
+            <!-- Game cards will be added here by JavaScript -->
+        </div>
+
+        <!-- Share section -->
+        <div class="share-section">
+            <h3 class="share-title share-title-en">Share This Category</h3>
+            <h3 class="share-title share-title-zh hidden">分享此类别</h3>
+            <div class="share-buttons">
+                <div class="share-btn share-tiktok" onclick="shareCategory('tiktok')">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="share-btn share-twitter" onclick="shareCategory('twitter')">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="share-btn share-facebook" onclick="shareCategory('facebook')">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="share-btn share-reddit" onclick="shareCategory('reddit')">
+                    <i class="fab fa-reddit-alien"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text-en">© 2024 TikTok Trending Games. All rights reserved.</p>
+                <p class="footer-text-zh hidden">© 2024 TikTok热门游戏. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 游戏数据
+        const games = [
+            {
+                id: "ball-fall-3d",
+                title: {
+                    en: "Ball Fall 3D",
+                    zh: "球落3D"
+                },
+                description: {
+                    en: "Guide your ball through challenging platforms in this exciting 3D action game. Test your reflexes as you navigate through increasingly difficult levels.",
+                    zh: "在这款刺激的3D动作游戏中引导你的球穿过充满挑战的平台。测试你的反应能力，穿越越来越困难的关卡。"
+                },
+                image: "images/ball-fall-3d.jpg",
+                url: "ball-fall-3d.html"
+            }
+        ];
+
+        // 分类配置
+        const categoryConfig = {
+            id: "action",
+            title: {
+                en: "Action",
+                zh: "动作"
+            },
+            description: {
+                en: "Fast-paced adventures that test your reflexes",
+                zh: "快节奏冒险，测试你的反应能力"
+            },
+            icon: "⚡"
+        };
+
+        // 分享类别函数
+        function shareCategory(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("Check out these Action Games on TikTok Trending Games!");
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'tiktok':
+                    shareUrl = `https://www.tiktok.com/upload/?url=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://www.reddit.com/submit?url=${url}&title=${title}`;
+                    break;
+            }
+            
+            window.open(shareUrl, '_blank');
+        }
+
+        // 渲染游戏卡片
+        function renderGames() {
+            const gamesContainer = document.getElementById('games-container');
+            gamesContainer.innerHTML = '';
+
+            if (games.length === 0) {
+                // 显示空状态
+                const emptyState = document.createElement('div');
+                emptyState.className = 'empty-state';
+                emptyState.innerHTML = `
+                    <div class="empty-icon">📋</div>
+                    <h3 class="empty-title-en">No games yet</h3>
+                    <h3 class="empty-title-zh hidden">暂无游戏</h3>
+                    <p class="empty-desc-en">Games will be added soon. Check back later!</p>
+                    <p class="empty-desc-zh hidden">游戏将很快添加。稍后再来看看！</p>
+                `;
+                gamesContainer.appendChild(emptyState);
+                return;
+            }
+
+            games.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.innerHTML = `
+                    <img src="${game.image}" alt="${game.title.en}" class="game-thumbnail">
+                    <div class="game-info">
+                        <h3 class="game-title game-title-en">${game.title.en}</h3>
+                        <h3 class="game-title game-title-zh hidden">${game.title.zh}</h3>
+                        <p class="game-description game-desc-en">${game.description.en}</p>
+                        <p class="game-description game-desc-zh hidden">${game.description.zh}</p>
+                        <a href="${game.url}" class="play-btn play-btn-en">Play</a>
+                        <a href="${game.url}" class="play-btn play-btn-zh hidden">玩游戏</a>
+                    </div>
+                `;
+                gamesContainer.appendChild(gameCard);
+            });
+        }
+
+        // 语言切换函数
+        function switchLanguage(lang) {
+            // 隐藏所有语言元素
+            document.querySelectorAll('[class*="-en"], [class*="-zh"]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // 显示选定语言的元素
+            document.querySelectorAll(`[class*="-${lang}"]`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // 更新按钮样式
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // 保存语言偏好
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderGames();
+            
+            // 设置初始语言
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(preferredLanguage);
+        });
+    </script>
+</body>
+</html> 

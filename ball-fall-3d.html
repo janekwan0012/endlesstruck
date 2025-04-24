@@ -3,270 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ball Fall 3D - TikTok Trending Games</title>
-    <meta name="description" content="Play Ball Fall 3D, an exciting arcade game where you guide a ball through challenging obstacles. Navigate levels and reach the finish line.">
+    <title>Ball Fall 3D - Arcade Game | TikTok Trending Games</title>
+    <meta name="description" content="Play Ball Fall 3D online - An exciting arcade game where you guide a ball through challenging obstacles. Test your reflexes and timing in this addictive 3D game.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* 基础样式 */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            background-color: #f3f4f6;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: block !important;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-btn {
-            padding: 5px 10px;
-            border: 1px solid white;
-            background: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .language-btn.active {
-            background: white;
-            color: #2c3e50;
-        }
-
-        .game-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .game-title h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .game-title p {
-            color: #666;
-            font-size: 1.2rem;
-        }
-
+        /* 游戏容器样式 */
         .game-container {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
         }
 
-        .game-frame {
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 2rem;
+            height: 100%;
+            border-radius: 1rem;
         }
 
-        .game-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 2rem;
-        }
-
-        .feature-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .game-guide {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .game-guide h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .guide-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .guide-section h3 {
-            color: #34495e;
-            margin-bottom: 0.5rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 2rem;
-        }
-
-        .tag {
-            background: #e9ecef;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            color: #495057;
-        }
-
-        [lang="zh"] {
+        /* 语言切换样式 */
+        [lang="en"] .content-zh,
+        [lang="zh"] .content-en {
             display: none;
         }
 
-        .language-active[lang="zh"] {
+        [lang="en"] .content-en,
+        [lang="zh"] .content-zh {
             display: block;
         }
 
-        .language-active[lang="en"] {
-            display: none;
+        [lang="en"] .content-en.inline,
+        [lang="zh"] .content-zh.inline {
+            display: inline;
+        }
+
+        /* 评论区样式 */
+        .comments-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .utterances {
+            max-width: 100% !important;
+            margin: 0;
+        }
+
+        /* 确保页面内容始终可见 */
+        .container {
+            display: block !important;
+        }
+
+        /* 分享按钮样式 */
+        .share-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .share-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            color: white;
+            font-size: 16px;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .share-btn.tiktok {
+            background: #000000;
+        }
+
+        .share-btn.twitter {
+            background: #1DA1F2;
+        }
+
+        .share-btn.facebook {
+            background: #4267B2;
+        }
+
+        .share-btn.reddit {
+            background: #FF4500;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>TikTok Trending Games</h1>
-                <div class="language-switcher">
-                    <button class="language-btn active" onclick="switchLanguage('en')">English</button>
-                    <button class="language-btn" onclick="switchLanguage('zh')">中文</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="game-title">
-            <h1 lang="en">Ball Fall 3D</h1>
-            <h1 lang="zh">球球坠落3D</h1>
-            <p lang="en">Guide the ball through challenging obstacles in this exciting arcade game</p>
-            <p lang="zh">在这款刺激的街机游戏中引导球穿越挑战性障碍</p>
-        </div>
-
-        <div class="game-container">
-            <iframe class="game-frame" src="https://storage.y8.com/y8-studio/unity_webgl/gamosoftstudios/BallFall3D-2022-v1/index.html" allowfullscreen></iframe>
-
-            <div class="game-features">
-                <div class="feature-card">
-                    <h3>🎮 Challenging Obstacles</h3>
-                    <p lang="en">Navigate through various obstacles and traps</p>
-                    <p lang="zh">穿越各种障碍和陷阱</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🏆 Level Progression</h3>
-                    <p lang="en">Complete levels to unlock new challenges</p>
-                    <p lang="zh">完成关卡以解锁新挑战</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🌟 3D Graphics</h3>
-                    <p lang="en">Enjoy stunning 3D graphics and smooth gameplay</p>
-                    <p lang="zh">享受惊人的3D图形和流畅的游戏体验</p>
-                </div>
-            </div>
-
-            <div class="game-guide">
-                <h2 lang="en">How to Play</h2>
-                <h2 lang="zh">游戏指南</h2>
-
-                <div class="guide-section">
-                    <h3 lang="en">Controls</h3>
-                    <h3 lang="zh">控制方式</h3>
-                    <p lang="en">• Mouse: Move the ball left or right<br>
-                    • Click: Jump over obstacles</p>
-                    <p lang="zh">• 鼠标：左右移动球<br>
-                    • 点击：跳过障碍</p>
-                </div>
-
-                <div class="guide-section">
-                    <h3 lang="en">Objectives</h3>
-                    <h3 lang="zh">游戏目标</h3>
-                    <p lang="en">1. Guide the ball through obstacles<br>
-                    2. Avoid traps and pitfalls<br>
-                    3. Reach the finish line to win</p>
-                    <p lang="zh">1. 引导球穿越障碍<br>
-                    2. 避开陷阱和陷坑<br>
-                    3. 到达终点线以获胜</p>
-                </div>
-
-                <div class="guide-section">
-                    <h3 lang="en">Tips</h3>
-                    <h3 lang="zh">游戏技巧</h3>
-                    <p lang="en">1. Time your jumps carefully<br>
-                    2. Use momentum to navigate tricky sections<br>
-                    3. Watch out for hidden traps</p>
-                    <p lang="zh">1. 仔细把握跳跃时机<br>
-                    2. 利用动量通过困难区域<br>
-                    3. 注意隐藏的陷阱</p>
-                </div>
-            </div>
-
-            <div class="tags">
-                <span class="tag">arcade</span>
-                <span class="tag">ball</span>
-                <span class="tag">obstacle</span>
-                <span class="tag">challenge</span>
-                <span class="tag">3D</span>
+    <!-- 语言切换器 -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex justify-end space-x-4">
+                <button onclick="setLanguage('en')" class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="en">English</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('zh')" class="text-sm text-gray-600 hover:text-gray-900 px-2 py-1 rounded" data-lang="zh">中文</button>
             </div>
         </div>
     </div>
 
+    <!-- 页面内容 -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- 标题部分 -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2">
+                <span class="content-en">Ball Fall 3D</span>
+                <span class="content-zh">弹球下落3D</span>
+            </h1>
+            <p class="text-xl text-gray-600">
+                <span class="content-en">Test your reflexes in this addictive ball game</span>
+                <span class="content-zh">在这款令人上瘾的弹球游戏中测试你的反应能力</span>
+            </p>
+            <!-- 添加分享按钮 -->
+            <div class="share-buttons justify-center mt-4">
+                <button class="share-btn tiktok" onclick="shareGame('tiktok')" title="Share on TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </button>
+                <button class="share-btn twitter" onclick="shareGame('twitter')" title="Share on Twitter">
+                    <i class="fab fa-twitter"></i>
+                </button>
+                <button class="share-btn facebook" onclick="shareGame('facebook')" title="Share on Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                <button class="share-btn reddit" onclick="shareGame('reddit')" title="Share on Reddit">
+                    <i class="fab fa-reddit-alien"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 游戏部分 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div class="game-container">
+                <iframe 
+                    src="https://storage.y8.com/y8-studio/unity_webgl/gamosoftstudios/BallFall3D-2022-v1/index.html"
+                    frameborder="0"
+                    allow="fullscreen"
+                    scrolling="no"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- 游戏特性 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">Game Features</span>
+                <span class="content-zh">游戏特色</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-lg mb-3">🎯 
+                        <span class="content-en">Precise Controls</span>
+                        <span class="content-zh">精准控制</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span class="content-en">Simple yet challenging gameplay mechanics</span>
+                        <span class="content-zh">简单但富有挑战性的游戏机制</span>
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-lg mb-3">🌟 
+                        <span class="content-en">3D Graphics</span>
+                        <span class="content-zh">3D图形</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span class="content-en">Stunning visuals and smooth animations</span>
+                        <span class="content-zh">精美的视觉效果和流畅的动画</span>
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-lg mb-3">🎮 
+                        <span class="content-en">Progressive Difficulty</span>
+                        <span class="content-zh">渐进难度</span>
+                    </h3>
+                    <p class="text-gray-600">
+                        <span class="content-en">Increasingly challenging levels to test your skills</span>
+                        <span class="content-zh">难度逐渐提升的关卡考验你的技巧</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏指南 -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">How to Play</span>
+                <span class="content-zh">游戏指南</span>
+            </h2>
+            <div class="space-y-4">
+                <div>
+                    <p class="text-gray-600">
+                        <span class="content-en"><strong>Controls:</strong> Use mouse or touch to guide the ball</span>
+                        <span class="content-zh"><strong>控制：</strong>使用鼠标或触摸来引导小球</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-gray-600">
+                        <span class="content-en"><strong>Objective:</strong> Guide the ball through obstacles to reach the goal</span>
+                        <span class="content-zh"><strong>目标：</strong>引导小球穿过障碍到达终点</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-gray-600">
+                        <span class="content-en"><strong>Tips:</strong> Time your moves carefully and watch for patterns</span>
+                        <span class="content-zh"><strong>提示：</strong>仔细把握时机并观察障碍物规律</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏介绍 -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">
+                <span class="content-en">About Ball Fall 3D</span>
+                <span class="content-zh">关于3D弹球下落</span>
+            </h2>
+            <div class="text-gray-600">
+                <p class="mb-4">
+                    <span class="content-en">Ball Fall 3D is an addictive arcade game that combines simple controls with challenging gameplay. Navigate through increasingly difficult obstacles, test your reflexes, and see how far you can go in this exciting 3D adventure.</span>
+                    <span class="content-zh">3D弹球下落是一款令人上瘾的街机游戏，将简单的控制与具有挑战性的游戏玩法相结合。在这个刺激的3D冒险中，穿越越来越困难的障碍，测试你的反应能力，看看你能走多远。</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- 评论区 -->
+        <div class="comments-section">
+            <h2 class="section-title">
+                <span class="content-en">Comments</span>
+                <span class="content-zh">评论</span>
+            </h2>
+            <script src="https://utteranc.es/client.js"
+                repo="janekwan0012/game-site-comments"
+                issue-term="pathname"
+                label="comment"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <p class="text-center text-gray-500 text-sm">
+                <span class="content-en">&copy; 2024 TikTok Trending Games</span>
+                <span class="content-zh">&copy; 2024 TikTok热门游戏</span>
+            </p>
+        </div>
+    </footer>
+
     <script>
-        function switchLanguage(lang) {
+        // 语言切换函数
+        function setLanguage(lang) {
+            console.log('Switching language to:', lang);
             document.documentElement.lang = lang;
-            document.querySelectorAll('[lang]').forEach(element => {
-                element.classList.remove('language-active');
-            });
-            document.querySelectorAll(`[lang="${lang}"]`).forEach(element => {
-                element.classList.add('language-active');
-            });
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-            localStorage.setItem('preferredLanguage', lang);
+            localStorage.setItem('preferred-language', lang);
+            updateLanguageButtons(lang);
+
+            // 调试信息
+            console.log('Current language:', lang);
+            const zhContent = document.querySelectorAll('.content-zh');
+            const enContent = document.querySelectorAll('.content-en');
+            console.log('Chinese content elements:', zhContent.length);
+            console.log('English content elements:', enContent.length);
         }
 
-        // Set initial language based on user preference
-        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        switchLanguage(preferredLanguage);
+        // 更新语言按钮状态
+        function updateLanguageButtons(currentLang) {
+            document.querySelectorAll('[data-lang]').forEach(button => {
+                if (button.dataset.lang === currentLang) {
+                    button.classList.add('font-bold', 'text-gray-900');
+                } else {
+                    button.classList.remove('font-bold', 'text-gray-900');
+                }
+            });
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            setLanguage(savedLang);
+        });
     </script>
+
+    <!-- 分享功能 -->
+    <script>
+        function shareGame(platform) {
+            const gameUrl = window.location.href;
+            const currentLang = document.documentElement.lang;
+            
+            const gameTitles = {
+                en: 'Ball Fall 3D - Arcade Game',
+                zh: '弹球下落3D - 街机游戏'
+            };
+
+            const gameTitle = gameTitles[currentLang];
+            const shareText = currentLang === 'en' 
+                ? `Check out this awesome game: ${gameTitle}`
+                : `来看看这个精彩的游戏：${gameTitle}`;
+
+            let shareUrl = '';
+            switch(platform) {
+                case 'tiktok':
+                    shareUrl = `https://www.tiktok.com/share?url=${encodeURIComponent(gameUrl)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(gameUrl)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(gameUrl)}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://reddit.com/submit?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(shareText)}`;
+                    break;
+            }
+
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    </script>
+
+    <!-- 添加 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
 </html> 
