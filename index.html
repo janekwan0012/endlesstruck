@@ -3,116 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endless Truck - Free Online 3D Truck Driving Game</title>
-    <meta name="description" content="Play Endless Truck online - An exciting 3D truck driving adventure game. Drive through challenging terrains, collect rewards, and test your skills. No download needed!">
-    <link rel="canonical" href="https://endlesstruck.com">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Popular Online Games - Play Free Games</title>
+    <meta name="description" content="Discover and play the most popular online games. Free online games in various categories including action, puzzle, strategy, and more.">
     <style>
-        .game-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .game-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-btn {
+            padding: 5px 10px;
+            border: 1px solid white;
+            background: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .language-btn.active {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-games {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 15px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .game-thumbnail {
             width: 100%;
-            height: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover .game-thumbnail {
+            transform: scale(1.02);
+        }
+
+        .game-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        }
+
+        .game-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .game-info p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .play-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .play-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        [lang="zh"] {
+            display: none;
+        }
+
+        .language-active[lang="zh"] {
+            display: block;
+        }
+
+        .language-active[lang="en"] {
+            display: none;
         }
     </style>
 </head>
-<body class="bg-slate-50">
-    <main class="container mx-auto px-4 py-6 max-w-5xl">
-        <!-- Header Section -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Endless Truck
-            </h1>
-            <p class="text-xl text-gray-600">
-                Experience the ultimate 3D truck driving adventure
-            </p>
-        </header>
-
-        <!-- Game Section -->
-        <section class="mb-10 bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="game-container">
-                <iframe 
-                    src="https://play.famobi.com/endless-truck/"
-                    frameborder="0"
-                    scrolling="no"
-                    allow="autoplay"
-                    webkit-playsinline="true"
-                    title="Endless Truck Game">
-                </iframe>
-            </div>
-        </section>
-
-        <!-- Game Features -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                Game Features
-            </h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-lg mb-3">🎮 Gameplay</h3>
-                    <p class="text-gray-600">
-                        Intuitive controls and physics-based driving mechanics for an immersive experience
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-lg mb-3">🌍 Environments</h3>
-                    <p class="text-gray-600">
-                        Multiple challenging terrains with dynamic obstacles and weather conditions
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-lg mb-3">🏆 Achievements</h3>
-                    <p class="text-gray-600">
-                        Collect coins, unlock achievements, and compete for high scores
-                    </p>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Popular Online Games</h1>
+                <div class="language-switcher">
+                    <button class="language-btn active" onclick="switchLanguage('en')">English</button>
+                    <button class="language-btn" onclick="switchLanguage('zh')">中文</button>
                 </div>
             </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1 lang="en">Discover Amazing Games</h1>
+            <h1 lang="zh">发现精彩游戏</h1>
+            <p lang="en">Play the most exciting online games for free</p>
+            <p lang="zh">免费体验最精彩的在线游戏</p>
         </section>
 
-        <!-- How to Play -->
-        <section class="mb-10 bg-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                How to Play
-            </h2>
-            <div class="space-y-4">
-                <p class="text-gray-600">
-                    <span class="font-bold">Controls:</span> Use arrow keys or space bar to control your truck
-                </p>
-                <p class="text-gray-600">
-                    <span class="font-bold">Objective:</span> Drive as far as possible while collecting coins
-                </p>
-                <p class="text-gray-600">
-                    <span class="font-bold">Tips:</span> Watch out for obstacles and use power-ups wisely
-                </p>
+        <section class="categories">
+            <div class="category-card">
+                <div class="category-icon">🎮</div>
+                <h3 lang="en">Action Games</h3>
+                <h3 lang="zh">动作游戏</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🧩</div>
+                <h3 lang="en">Puzzle Games</h3>
+                <h3 lang="zh">益智游戏</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎯</div>
+                <h3 lang="en">Strategy Games</h3>
+                <h3 lang="zh">策略游戏</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏃</div>
+                <h3 lang="en">Casual Games</h3>
+                <h3 lang="zh">休闲游戏</h3>
             </div>
         </section>
 
-        <!-- Game Description -->
-        <section class="mb-10 bg-white p-8 rounded-xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-                About Endless Truck
-            </h2>
-            <div class="prose max-w-none text-gray-600">
-                <p class="mb-4">
-                    Endless Truck is a thrilling 4D driving game that challenges players to navigate through increasingly difficult terrains while testing their truck driving skills. With realistic physics and stunning graphics, each session offers a unique adventure.
-                </p>
-                <p>
-                    Perfect for both casual gamers and driving enthusiasts, this free-to-play game requires no download and runs smoothly on both desktop and mobile devices. Challenge yourself to beat your high score and unlock all achievements!
-                </p>
+        <section class="featured-games">
+            <h2 class="section-title" lang="en">Featured Games</h2>
+            <h2 class="section-title" lang="zh">精选游戏</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="thumbnail-container">
+                        <img src="images/my-parking-lot.jpg" alt="My Parking Lot" class="game-thumbnail">
+                    </div>
+                    <div class="game-info">
+                        <div>
+                            <h3 lang="en">My Parking Lot</h3>
+                            <h3 lang="zh">我的停车场</h3>
+                            <p lang="en">Manage your own parking lot in this engaging simulation game</p>
+                            <p lang="zh">在这款引人入胜的模拟游戏中管理你自己的停车场</p>
+                        </div>
+                        <div>
+                            <a href="my-parking-lot.html" class="play-btn" lang="en">Play Now</a>
+                            <a href="my-parking-lot.html" class="play-btn" lang="zh">立即游戏</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="thumbnail-container">
+                        <img src="images/ball-fall-3d.jpg" alt="Ball Fall 3D" class="game-thumbnail">
+                    </div>
+                    <div class="game-info">
+                        <div>
+                            <h3 lang="en">Ball Fall 3D</h3>
+                            <h3 lang="zh">弹球下落3D</h3>
+                            <p lang="en">Test your reflexes in this challenging 3D ball dropping game</p>
+                            <p lang="zh">在这款具有挑战性的3D弹球游戏中测试你的反应能力</p>
+                        </div>
+                        <div>
+                            <a href="ball-fall-3d.html" class="play-btn" lang="en">Play Now</a>
+                            <a href="ball-fall-3d.html" class="play-btn" lang="zh">立即游戏</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="thumbnail-container">
+                        <img src="images/office-tycoon.jpg" alt="Office Tycoon" class="game-thumbnail">
+                    </div>
+                    <div class="game-info">
+                        <div>
+                            <h3 lang="en">Office Tycoon</h3>
+                            <h3 lang="zh">办公室大亨</h3>
+                            <p lang="en">Build and manage your own office empire</p>
+                            <p lang="zh">建立并管理你自己的办公室帝国</p>
+                        </div>
+                        <div>
+                            <a href="office-tycoon.html" class="play-btn" lang="en">Play Now</a>
+                            <a href="office-tycoon.html" class="play-btn" lang="zh">立即游戏</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+    </div>
 
-        <!-- Footer -->
-        <footer class="text-center text-gray-500 text-sm">
-            <p>&copy; 2024 EndlessTruck.com - All rights reserved</p>
-        </footer>
-    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p lang="en">© 2024 Popular Online Games. All rights reserved.</p>
+                <p lang="zh">© 2024 热门在线游戏. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[lang]').forEach(element => {
+                element.classList.remove('language-active');
+            });
+            document.querySelectorAll(`[lang="${lang}"]`).forEach(element => {
+                element.classList.add('language-active');
+            });
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Set initial language based on user preference
+        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        switchLanguage(preferredLanguage);
+    </script>
 </body>
 </html>
