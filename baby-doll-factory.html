@@ -6,6 +6,14 @@
     <title>Baby Doll Factory - Factory Management Game | TikTok Trending Games</title>
     <meta name="description" content="Play Baby Doll Factory online - A fun factory management game where you create and customize dolls. Manage production, ensure quality, and run your own doll factory.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN3QPNNS4P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VN3QPNNS4P');
+    </script>
     <style>
         /* 基础样式 */
         body {
@@ -74,44 +82,54 @@
         }
 
         /* 分享按钮样式 */
+        .share-section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .share-title {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
         .share-buttons {
             display: flex;
-            gap: 8px;
-            margin-top: 1rem;
+            gap: 10px;
         }
-
+        
         .share-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             color: white;
-            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-
+        
         .share-btn:hover {
             transform: scale(1.1);
         }
-
-        .share-btn.tiktok {
-            background: #000000;
+        
+        .share-tiktok {
+            background-color: #000000;
         }
-
-        .share-btn.twitter {
-            background: #1DA1F2;
+        
+        .share-twitter {
+            background-color: #1DA1F2;
         }
-
-        .share-btn.facebook {
-            background: #4267B2;
+        
+        .share-facebook {
+            background-color: #4267B2;
         }
-
-        .share-btn.reddit {
-            background: #FF4500;
+        
+        .share-reddit {
+            background-color: #FF5700;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -140,21 +158,6 @@
                 <span class="content-en">Create and customize dolls in your own factory</span>
                 <span class="content-zh">在你的工厂里制作和定制娃娃</span>
             </p>
-            <!-- 添加分享按钮 -->
-            <div class="share-buttons justify-center mt-4">
-                <button class="share-btn tiktok" onclick="shareGame('tiktok')" title="Share on TikTok">
-                    <i class="fab fa-tiktok"></i>
-                </button>
-                <button class="share-btn twitter" onclick="shareGame('twitter')" title="Share on Twitter">
-                    <i class="fab fa-twitter"></i>
-                </button>
-                <button class="share-btn facebook" onclick="shareGame('facebook')" title="Share on Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </button>
-                <button class="share-btn reddit" onclick="shareGame('reddit')" title="Share on Reddit">
-                    <i class="fab fa-reddit-alien"></i>
-                </button>
-            </div>
         </header>
 
         <!-- 游戏部分 -->
@@ -267,6 +270,26 @@
                 async>
             </script>
         </div>
+
+        <!-- Share section -->
+        <div class="share-section">
+            <h3 class="share-title" lang="en">Share This Game</h3>
+            <h3 class="share-title" lang="zh">分享游戏</h3>
+            <div class="share-buttons">
+                <div class="share-btn share-tiktok" onclick="shareGame('tiktok')">
+                    <i class="fa fa-tiktok"></i>
+                </div>
+                <div class="share-btn share-twitter" onclick="shareGame('twitter')">
+                    <i class="fa fa-twitter"></i>
+                </div>
+                <div class="share-btn share-facebook" onclick="shareGame('facebook')">
+                    <i class="fa fa-facebook"></i>
+                </div>
+                <div class="share-btn share-reddit" onclick="shareGame('reddit')">
+                    <i class="fa fa-reddit"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 页脚 -->
@@ -316,36 +339,27 @@
     <!-- 分享功能 -->
     <script>
         function shareGame(platform) {
-            const gameUrl = window.location.href;
-            const currentLang = document.documentElement.lang;
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("Check out this Baby Doll Factory game on TikTok Trending Games!");
             
-            const gameTitles = {
-                en: 'Baby Doll Factory - Factory Management Game',
-                zh: '娃娃工厂 - 工厂管理游戏'
-            };
-
-            const gameTitle = gameTitles[currentLang];
-            const shareText = currentLang === 'en' 
-                ? `Check out this awesome game: ${gameTitle}`
-                : `来看看这个精彩的游戏：${gameTitle}`;
-
             let shareUrl = '';
+            
             switch(platform) {
                 case 'tiktok':
-                    shareUrl = `https://www.tiktok.com/share?url=${encodeURIComponent(gameUrl)}&text=${encodeURIComponent(shareText)}`;
+                    shareUrl = `https://www.tiktok.com/upload/?url=${url}`;
                     break;
                 case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(gameUrl)}&text=${encodeURIComponent(shareText)}`;
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
                     break;
                 case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(gameUrl)}`;
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
                     break;
                 case 'reddit':
-                    shareUrl = `https://reddit.com/submit?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(shareText)}`;
+                    shareUrl = `https://www.reddit.com/submit?url=${url}&title=${title}`;
                     break;
             }
-
-            window.open(shareUrl, '_blank', 'width=600,height=400');
+            
+            window.open(shareUrl, '_blank');
         }
     </script>
 </body>

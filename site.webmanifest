@@ -17,5 +17,16 @@
   "background_color": "#f4f4f4",
   "display": "standalone",
   "start_url": "/index.html",
-  "description": "Play the most trending games online for free. Various categories including action, puzzle, strategy, and simulation games."
+  "description": "Play the most trending games online for free. Various categories including action, puzzle, strategy, and simulation games.",
+  "lang": "en",
+  "dir": "ltr",
+  "orientation": "portrait",
+  "categories": ["games", "entertainment"],
+  "screenshots": [
+    {
+      "src": "/images/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ]
 } 

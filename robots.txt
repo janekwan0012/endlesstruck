@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /server.js
-
 Sitemap: https://yourdomain.com/sitemap.xml 

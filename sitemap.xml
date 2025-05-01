@@ -1,51 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 主页 - 最高优先级 -->
   <url>
     <loc>https://yourdomain.com/</loc>
     <lastmod>2024-04-24</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- 特色游戏页面 - 次高优先级 -->
   <url>
-    <loc>https://yourdomain.com/my-parking-lot.html</loc>
+    <loc>https://yourdomain.com/office-tycoon.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/baby-doll-factory.html</loc>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yourdomain.com/ball-fall-3d.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/office-tycoon.html</loc>
+    <loc>https://yourdomain.com/my-parking-lot.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://yourdomain.com/last-war-survival.html</loc>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 分类页面 -->
   <url>
     <loc>https://yourdomain.com/category-simulation.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yourdomain.com/category-action.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yourdomain.com/category-strategy.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yourdomain.com/category-puzzle.html</loc>
     <lastmod>2024-04-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/category-casual.html</loc>
+    <lastmod>2024-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset> 
